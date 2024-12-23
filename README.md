@@ -15,44 +15,44 @@ select count(*) as total_customers from customers;
 -- Find the count of customers from each region. Display the region name along with the total number of customers. 
 select region, count(*) count_of_customers from customers group by region order by count_of_customers desc; 
 
--- Calculate the average quantity of products ordered by each customer. 
+-- Calculate the average quantity of products ordered by each customer.  
 select c.customer_id, c.name, round(avg(quantity),0) as avg_quantity
 from orders as o inner join customers as c on c.customer_id = o.customer_id
 group by c.customer_id, c.name;
 
--- Identify the top 5 customers who have contributed the most revenue (total amount spent). Display the customer name, total amount spent, and their rank based on the descending order of revenue. 
-with customer_rank_cte1 as (
+-- Identify the top 5 customers who have contributed the most revenue (total amount spent). Display the customer name, total amount spent, and their rank based on the descending order of revenue.  
+with customer_rank_cte1 as ( 
 select c.customer_id, c.name, round(sum(o.total_amount),0) as total_amount_spent
 from customers as c inner join orders as o on c.customer_id = o.customer_id
-group by c.customer_id, c.name), 
+group by c.customer_id, c.name),  
 customer_rank_cte2 as ( 
 select *,
 dense_rank() over(order by total_amount_spent desc) as ranking
 from customer_rank_cte1
+)  
+select * from customer_rank_cte2 where ranking <= 5;  
+
+-- For each customer, retrieve the very first order, the most recent order along with the total payment amount and order date. 
+with customer_orders_cte1 as( 
+select customer_id, order_date, total_amount, 
+row_number() over(partition by customer_id order by order_date) as first_order, 
+row_number() over(partition by customer_id order by order_date desc) as last_order 
+from orders 
 ) 
-select * from customer_rank_cte2 where ranking <= 5; 
+select customer_id,  
+max(case when first_order = 1 then order_date end) as first_order_date, 
+round(max(case when first_order = 1 then total_amount end),0) as first_order_amount, 
+max(case when last_order = 1 then order_date end) as last_order_date, 
+round(max(case when last_order = 1 then total_amount end),0) as last_order_amount 
+from customer_orders_cte1 group by customer_id; 
 
--- For each customer, retrieve the very first order, the most recent order along with the total payment amount and order date.
-with customer_orders_cte1 as(
-select customer_id, order_date, total_amount,
-row_number() over(partition by customer_id order by order_date) as first_order,
-row_number() over(partition by customer_id order by order_date desc) as last_order
-from orders
-)
-select customer_id, 
-max(case when first_order = 1 then order_date end) as first_order_date,
-round(max(case when first_order = 1 then total_amount end),0) as first_order_amount,
-max(case when last_order = 1 then order_date end) as last_order_date,
-round(max(case when last_order = 1 then total_amount end),0) as last_order_amount
-from customer_orders_cte1 group by customer_id;
-
--- write a sql query to find the top 5 customers with the highest total spending in the last 6 months.
-with top_5_customers as(
-select c.customer_id, c.name, round(sum(o.total_amount),0) as total_spending
-from orders as o inner join customers as c on o.customer_id = c.customer_id where order_date > current_date() - interval 6 month
-group by c.customer_id, c.name
-)
-select * from top_5_customers order by total_spending desc limit 5;
+-- write a sql query to find the top 5 customers with the highest total spending in the last 6 months. 
+with top_5_customers as( 
+select c.customer_id, c.name, round(sum(o.total_amount),0) as total_spending 
+from orders as o inner join customers as c on o.customer_id = c.customer_id where order_date > current_date() - interval 6 month 
+group by c.customer_id, c.name 
+) 
+select * from top_5_customers order by total_spending desc limit 5; 
 -- *************************************************************************
 
 -- Product Analysis:
