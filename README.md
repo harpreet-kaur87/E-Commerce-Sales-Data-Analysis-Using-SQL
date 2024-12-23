@@ -1,6 +1,6 @@
 # E-Commerce-Sales-Data-Analysis-Using-SQL
 
-![image] {}
+![image]
 
 ## Objective 
 The aim of this project is to analyze e-commerce sales data using SQL to extract meaningful insights about customer behavior, product performance, sales trends, and payment methods. By exploring the data, the project identifies regions with the highest customer activity. It also focuses on analyzing product sales by category and price range, highlighting best-selling items and underperforming products.
