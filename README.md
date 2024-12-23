@@ -55,7 +55,7 @@ from customer_orders_cte1 group by customer_id;
 
 
 
-**6. write a sql query to find the top 5 customers with the highest total spending in the last 6 months.** 
+**6. write a sql query to find the top 5 customers with the highest total spending in the last 6 months.**   
 with top_5_customers as(  
 select c.customer_id, c.name, round(sum(o.total_amount),0) as total_spending  
 from orders as o inner join customers as c on o.customer_id = c.customer_id where order_date > current_date() - interval 6 month  
@@ -81,7 +81,7 @@ group by p.product_id, p.product_name;
 
 
 
-**9. Find the top 3 products in terms of revenue for each category.**
+**9. Find the top 3 products in terms of revenue for each category.**  
 with top_3_products as(  
 select p.category, p.product_name, round(sum(o.total_amount),0) as revenue  
 from products as p inner join orders as o on p.product_id = o.product_id  
@@ -94,7 +94,7 @@ select * from cte1 where ranking <= 3;
 
 
 
-**10. Find the total revenue for each product category in the products table.**
+**10. Find the total revenue for each product category in the products table.**  
 select p.category, round(sum(o.total_amount),0) as total_revenue from products as p inner join orders as o on p.product_id = o.product_id  
 group by p.category;  
 
@@ -107,7 +107,7 @@ group by p.product_id, p.product_name;
 
 
 
-**12. Write an SQL query to find the three products with the lowest total sales (revenue) in each category.**
+**12. Write an SQL query to find the three products with the lowest total sales (revenue) in each category.**  
 with least_selling_products as(  
 select p.category, p.product_name, round(sum(o.total_amount),0) as total_sales  
 from products as p inner join orders as o on p.product_id = o.product_id  
@@ -133,13 +133,13 @@ select count(*) as total_number_of_orders from orders;
 
 
 
-**14. Find the number of orders placed in each year. Display the year along with the total count of orders.**
+**14. Find the number of orders placed in each year. Display the year along with the total count of orders.**  
 select year(order_date) as year, count(*) count_of_orders from orders group by year(order_date) order by year(order_date);  
 
 
 
 
-**15. Calculate the running total (total_amount) for each order in the orders table, ordered by order_date.**
+**15. Calculate the running total (total_amount) for each order in the orders table, ordered by order_date.**  
 select order_id, order_date, total_amount,  
 round(sum(total_amount) over(order by order_date, order_id),0) as running_total from orders;  
 
