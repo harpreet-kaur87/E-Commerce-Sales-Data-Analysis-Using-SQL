@@ -1,0 +1,101 @@
+product_id,product_name,price,category
+1,T-Shirts,100.1,Clothing
+2,Sofas,273.58,Furniture
+3,Smartphones,128.07,Electronics
+4,Tablets,120.42,Electronics
+5,Shirts,430.2,Clothing
+6,Sweaters,80.73,Clothing
+7,Armchairs,236.88,Furniture
+8,Laptops,38.24,Electronics
+9,"Desktop Computers",212.21,Electronics
+10,Hoodies,214.09,Clothing
+11,"Tank Tops",269.7,Clothing
+12,Recliners,200.33,Furniture
+13,"Crop Tops",134.95,Clothing
+14,"Coffee Tables",171.83,Furniture
+15,Smartwatchs,48.74,Electronics
+16,Jeans,230.4,Clothing
+17,Trousers,191.83,Clothing
+18,Shorts,272.46,Clothing
+19,"TV Stands",416.41,Furniture
+20,Cameras,35.25,Electronics
+21,Televisions,194.81,Electronics
+22,"Home Theatre Systems",306.44,Electronics
+23,Skirts,29.38,Clothing
+24,Speakers,45.66,Electronics
+25,Projectors,404.28,Electronics
+26,"Microwave Ovens",297.92,Electronics
+27,Leggings,339.01,Clothing
+28,Capris,116.34,Clothing
+29,"Entertainment Centers",112.36,Furniture
+30,Ottomans,454.45,Furniture
+31,Beds,158.56,Furniture
+32,Nightstands,455.41,Furniture
+33,Refrigerators,113.79,Electronics
+34,Dressers,103.11,Furniture
+35,Wardrobes,373.32,Furniture
+36,Mirrors,375.97,Furniture
+37,"Casual Dresses",379.62,Clothing
+38,Dishwashers,458.08,Electronics
+39,"Evening Gowns",350.86,Clothing
+40,"Coffee Makers",354.85,Electronics
+41,"Dining Tables",204.35,Furniture
+42,"Maxi Dresses",127.27,Clothing
+43,Blenders,167.59,Electronics
+44,"Mini Dresses",148.7,Clothing
+45,"Formal Dresses",238.46,Clothing
+46,"Electric Kettles",327.87,Electronics
+47,Toasters,161.13,Electronics
+48,"Dining Chairs",186.23,Furniture
+49,Sideboards,442.58,Furniture
+50,"China Cabinets",238.34,Furniture
+51,Jackets,403.38,Clothing
+52,Desks,363.98,Furniture
+53,"Induction Cooktops",383.2,Electronics
+54,Coats,166.91,Clothing
+55,"Food Processor",109.53,Electronics
+56,Blazers,163.33,Clothing
+57,"Hair Dryers",32.4,Electronics
+58,"Hair Straighteners",433.4,Electronics
+59,"Office Chairs",373.21,Furniture
+60,Bookcases,17.95,Furniture
+61,Cardigans,281.12,Clothing
+62,"Standing Desks",296.18,Furniture
+63,Vests,362.81,Clothing
+64,Trimmers,154.64,Electronics
+65,Ponchos,106.13,Clothing
+66,"Electric Toothbrushes",122.71,Electronics
+67,Massagers,289.2,Electronics
+68,Printers,130.41,Electronics
+69,Boxers,279.81,Clothing
+70,Nightgowns,472.3,Clothing
+71,"Patio Chairs",175.41,Furniture
+72,"Outdoor Sofas",384.05,Furniture
+73,Scanners,249.42,Electronics
+74,Photocopiers,364.54,Electronics
+75,Pajamas,372.4,Clothing
+76,"Garden Benches",235.81,Furniture
+77,"Yoga Pants",369.06,Clothing
+78,"Running Shorts",182.57,Clothing
+79,"Track Jackets",78.58,Clothing
+80,Monitors,277.81,Electronics
+81,"Bluetooth Headsets",100.18,Electronics
+82,"Deck Chairs",445.79,Furniture
+83,"Vacuum Cleaners",495.26,Electronics
+84,"Air Purifiers",479.05,Electronics
+85,Sarees,266.73,Clothing
+86,Fans,421.14,Electronics
+87,"Kurta Pajamas",46.42,Clothing
+88,"Shoe Racks",410.82,Furniture
+89,Heaters,33.77,Electronics
+90,Cribs,13.13,Furniture
+91,"Air Conditioners",77.37,Electronics
+92,Lehengas,319.04,Clothing
+93,"Circuit Boards",43.3,Electronics
+94,Hats,84,Clothing
+95,"Bunk Beds",117.17,Furniture
+96,Belts,233.44,Clothing
+97,Gloves,39.62,Clothing
+98,"Sleeper Sofas",322.49,Furniture
+99,"Murphy Beds",467.61,Furniture
+100,Scarves,457.25,Clothing
