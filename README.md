@@ -1,36 +1,36 @@
 # E-Commerce-Sales-Data-Analysis-Using-SQL
 
-![image] {https://github.com/harpreet-kaur87/E-Commerce-Sales-Data-Analysis-Using-SQL/blob/main/image.jpg}
+![image] {}
 
 ## Objective 
 The aim of this project is to analyze e-commerce sales data using SQL to extract meaningful insights about customer behavior, product performance, sales trends, and payment methods. By exploring the data, the project identifies regions with the highest customer activity. It also focuses on analyzing product sales by category and price range, highlighting best-selling items and underperforming products.
 Additionally, the project uncovers order patterns, such as frequency, seasonal trends, and peak sales periods, while analyzing revenue growth on a monthly and quarterly basis. Payment insights, including customer preferences for payment methods.
 
 
--- Customer Analysis:
+-- Customer Analysis: 
 
--- Count the total number of customers
-select count(*) as total_customers from customers;
+-- Count the total number of customers 
+select count(*) as total_customers from customers; 
 
--- Find the count of customers from each region. Display the region name along with the total number of customers.
-select region, count(*) count_of_customers from customers group by region order by count_of_customers desc;
+-- Find the count of customers from each region. Display the region name along with the total number of customers. 
+select region, count(*) count_of_customers from customers group by region order by count_of_customers desc; 
 
--- Calculate the average quantity of products ordered by each customer.
+-- Calculate the average quantity of products ordered by each customer. 
 select c.customer_id, c.name, round(avg(quantity),0) as avg_quantity
 from orders as o inner join customers as c on c.customer_id = o.customer_id
 group by c.customer_id, c.name;
 
--- Identify the top 5 customers who have contributed the most revenue (total amount spent). Display the customer name, total amount spent, and their rank based on the descending order of revenue.
+-- Identify the top 5 customers who have contributed the most revenue (total amount spent). Display the customer name, total amount spent, and their rank based on the descending order of revenue. 
 with customer_rank_cte1 as (
 select c.customer_id, c.name, round(sum(o.total_amount),0) as total_amount_spent
 from customers as c inner join orders as o on c.customer_id = o.customer_id
-group by c.customer_id, c.name),
-customer_rank_cte2 as (
+group by c.customer_id, c.name), 
+customer_rank_cte2 as ( 
 select *,
 dense_rank() over(order by total_amount_spent desc) as ranking
 from customer_rank_cte1
-)
-select * from customer_rank_cte2 where ranking <= 5;
+) 
+select * from customer_rank_cte2 where ranking <= 5; 
 
 -- For each customer, retrieve the very first order, the most recent order along with the total payment amount and order date.
 with customer_orders_cte1 as(
