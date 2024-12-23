@@ -9,8 +9,10 @@ Additionally, the project uncovers order patterns, such as frequency, seasonal t
 
 -- Customer Analysis: 
 
--- Count the total number of customers 
-select count(*) as total_customers from customers; 
+-- Count the total number of customers  
+
+select count(*) as total_customers from customers;   
+
 
 -- Find the count of customers from each region. Display the region name along with the total number of customers. 
 select region, count(*) count_of_customers from customers group by region order by count_of_customers desc; 
