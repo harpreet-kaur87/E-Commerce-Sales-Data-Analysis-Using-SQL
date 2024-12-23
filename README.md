@@ -128,7 +128,7 @@ select * from least_selling_products_cte2 where rn <= 3;
 
 
 
-**13. Count the total number of orders placed**
+**13. Count the total number of orders placed**  
 select count(*) as total_number_of_orders from orders;  
 
 
@@ -145,8 +145,10 @@ round(sum(total_amount) over(order by order_date, order_id),0) as running_total 
 
 
 
--- **************************************************************************
- Payment Insights:  
+**************************************************************************  
+ Payment Insights:    
+
+ 
 
  
 
