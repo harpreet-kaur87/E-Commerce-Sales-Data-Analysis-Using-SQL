@@ -145,14 +145,14 @@ round(sum(total_amount) over(order by order_date, order_id),0) as running_total 
 
 
 
-**************************************************************************  
+-- **************************************************************************  
  Payment Insights:    
 
  
 
  
 
-**16. Identify the payment method through which the maximum number of payments were made. Display the payment method and the corresponding total count of payments.**
+**16. Identify the payment method through which the maximum number of payments were made. Display the payment method and the corresponding total count of payments.**  
 select method, count(*) as no_of_payments from payments group by method;  
 
 
@@ -188,7 +188,7 @@ cte inner join customers as c on cte.customer_id = c.customer_id where rn = 1;
 
 
 
-**20. Write an SQL query to calculate the total sales for each region, displaying the total sales for each year (from the earliest year in the dataset to the latest year).**
+**20. Write an SQL query to calculate the total sales for each region, displaying the total sales for each year (from the earliest year in the dataset to the latest year).**  
 with cte as(  
 select c.region, year(order_date) as year, round(sum(total_amount),0) as total_sales  
 from customers as c inner join orders as o on c.customer_id = o.customer_id group by c.region, year(order_date)  
@@ -201,7 +201,7 @@ from cte group by region;
 
 
 
-**21. Write an SQL query to calculate the total sales for each category, displaying the total sales for each year (from the earliest year in the dataset to the latest year).**
+**21. Write an SQL query to calculate the total sales for each category, displaying the total sales for each year (from the earliest year in the dataset to the latest year).**  
 with cte as(  
 select p.category, year(o.order_date) as year, round(sum(total_amount),0) as total_sales  
 from products as p inner join orders as o on p.product_id = o.product_id group by p.category, year(o.order_date)  
@@ -237,7 +237,9 @@ select *,
 dense_rank() over(partition by year order by total_sales desc) as ranking  
 from highest_total_sales  
 )  
-select year, month, round(total_sales,0)  as total_sales from highest_total_sales_cte2 where ranking = 1;  
+select year, month, round(total_sales,0)  as total_sales from highest_total_sales_cte2 where ranking = 1;   
+
+
 
 
 
